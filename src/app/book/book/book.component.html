@@ -1,0 +1,36 @@
+
+<div class="form" [formGroup]="form">
+  <input type="text" placeholder="Enter book name" name="" id="" formControlName='name' />
+  <input
+    type="text"
+    placeholder="Enter writer name"
+    name=""
+    id=""
+    formControlName="writer"
+  />
+  <button *ngIf="!editMode" (click)="add()">add</button>
+  <button *ngIf="editMode" (click)="update()">Update</button>
+  <button *ngIf="editMode" (click)="cancel()">Cancel</button>
+</div>
+
+<div class="d-flex gap-3 mt-4">
+  <ng-container
+  *ngIf="{
+    books: books$ | async,
+    isLoading: isLoading$ | async
+  } as data"
+>
+  <div class="card" style="width: 18rem" *ngFor="let book of data.books">
+    <div class="card-body">
+      <h5 class="card-title">{{ book.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ book.writer }}</h6>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <button (click)="edit(book)">Edit</button>
+      <button (click)="delete(book)">Delete</button>
+    </div>
+  </div>
+</ng-container>
+</div>

@@ -1,0 +1,26 @@
+input[type="text"] {
+    margin: 10px;
+    /* border-radius: 5px; */
+    width: 200px;
+    border: navajowhite;
+    border-bottom: 1px solid;
+
+}
+input:focus{
+    outline: none;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.form button{
+    width: 200px;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
